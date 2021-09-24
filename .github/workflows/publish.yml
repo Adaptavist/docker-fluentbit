@@ -16,4 +16,6 @@ jobs:
           export REPO=$(echo ${GITHUB_REPOSITORY} | tr '[:upper:]' '[:lower:]') && \
           echo ${{ secrets.RELEASE_GITHUB_TOKEN }} | docker login ghcr.io -u ${{ secrets.RELEASE_GITHUB_USERNAME }} --password-stdin && \
           docker build . -t ghcr.io/${REPO}:${TAG} && \
-          docker push ghcr.io/${REPO}:${TAG}
+          docker push ghcr.io/${REPO}:${TAG} && \
+          docker tag ghcr.io/${REPO}:${TAG} ghcr.io/${REPO}:latest && \
+          docker push ghcr.io/${REPO}:latest
