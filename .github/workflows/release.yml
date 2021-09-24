@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@master
       - uses: go-semantic-release/action@v1.11.2
         with:
-          github-token: ${{ secrets.PA_TOKEN }}
+          github-token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
