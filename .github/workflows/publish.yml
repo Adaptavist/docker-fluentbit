@@ -14,6 +14,6 @@ jobs:
       - run: |
           export TAG=$(echo ${GITHUB_REF} | cut -d '/' -f 3-) && \
           export REPO=$(echo ${GITHUB_REPOSITORY} | tr '[:upper:]' '[:lower:]') && \
-          echo ${{ secrets.PA_TOKEN }} | docker login ghcr.io -u ${{ secrets.PA_USERNAME }} --password-stdin && \
+          echo ${{ secrets.RELEASE_GITHUB_TOKEN }} | docker login ghcr.io -u ${{ secrets.RELEASE_GITHUB_USERNAME }} --password-stdin && \
           docker build . -t ghcr.io/${REPO}:${TAG} && \
           docker push ghcr.io/${REPO}:${TAG}
