@@ -25,4 +25,4 @@ RUN make release
 
 FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
 ADD conf /
-COPY --from=build_kinesis /kinesis-streams/bin/kinesis.so /fluent-bit/kinesis.so
+#COPY --from=build_kinesis /kinesis-streams/bin/kinesis.so /fluent-bit/kinesis.so
